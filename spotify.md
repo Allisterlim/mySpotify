@@ -12,7 +12,8 @@ I guess I just want to see how much music I listen to each day and then display 
 - [x] Create a a listening time by year  
 - [x] create a listening time by month and year 
 - [x] display the above information on a graph 
-- [ ] run a website and have your report and graphs displayed nicely on there using javascript 
+- [ ] run a website and have your report and graphs displayed nicely on there using javascript. you can connect using python flask for now? 
+- [ ] actually deploy this website on a free server 
 - [ ] you can try live sorting algorithms 
 - [ ] explore the live data spotify api 
 - [ ] create a screentime app for apple, or one for your PC 
