@@ -367,9 +367,8 @@ class Instantiate_Spotify_Analysis:
 
         ##### Test Datasets
         self.small_Dataset = r'small_SpotifyData\StreamingHistory0.json'
-        self.big_Dataset = r'big_SpotifyData\endsong_0.json' 
         self.testDataset_2174songs = r'test_Data\test_endsong_2174songs.json'
-        self.testDataset_351songs = r'C:\Users\Allisters PC\Documents\Allister_Lim_Data\myData_SpotifyAnalysis\test_Data\test_endsong_351songs.json'
+        self.testDataset_351songs = r'test_Data\test_endsong_351songs.json'
         self.testDataset_24songs = r'test_Data\test_endsong_24songs.json'
 
         # self.instantiate_Dataset(self.big_Dataset)
@@ -379,7 +378,7 @@ class Instantiate_Spotify_Analysis:
 
 
         ##### Actual Datasets
-        endsong_data_filepaths = [r'big_SpotifyData\endsong_0.json', r'big_SpotifyData\endsong_1.json', r'big_SpotifyData\endsong_2.json', r'big_SpotifyData\endsong_3.json', r'big_SpotifyData\endsong_4.json', r'big_SpotifyData\endsong_5.json', r'big_SpotifyData\endsong_6.json', r'big_SpotifyData\endsong_7.json', r'big_SpotifyData\endsong_8.json', r'big_SpotifyData\endsong_9.json', r'big_SpotifyData\endsong_10.json', r'big_SpotifyData\endsong_11.json']
+        endsong_data_filepaths = [r'Spotify_Data\big_SpotifyData\endsong_0.json', r'Spotify_Data\big_SpotifyData\endsong_1.json', r'Spotify_Data\big_SpotifyData\endsong_2.json', r'Spotify_Data\big_SpotifyData\endsong_3.json', r'Spotify_Data\big_SpotifyData\endsong_4.json', r'Spotify_Data\big_SpotifyData\endsong_5.json', r'Spotify_Data\big_SpotifyData\endsong_6.json', r'Spotify_Data\big_SpotifyData\endsong_7.json', r'Spotify_Data\big_SpotifyData\endsong_8.json', r'Spotify_Data\big_SpotifyData\endsong_9.json', r'Spotify_Data\big_SpotifyData\endsong_10.json', r'Spotify_Data\big_SpotifyData\endsong_11.json']
         self.instantiate_Dataset(self.combine_json_files(endsong_data_filepaths))
 
     def combine_json_files(self, endsong_data_filepaths):
