@@ -347,7 +347,7 @@ class spotifyAnalyser:
     
     def create_Txt_Report(self):
         #This will create a txt report of the data 
-        with open('MetaData.txt', 'w') as f:
+        with open('outputs/MetaData.txt', 'w') as f:
             f.write(self.print_number_of_songs())
             f.write('\n')
             f.write(self.print_total_listening_time())
@@ -387,7 +387,7 @@ class Instantiate_Spotify_Analysis:
         for file_path in endsong_data_filepaths:
             with open(file_path, encoding='utf-8') as f:
                 json_list += json.load(f)
-        with open('combined_endsong_file.json', 'w') as f:
+        with open('outputs/combined_endsong_file.json', 'w') as f:
             json.dump(json_list, f)
         
         return 'combined_endsong_file.json'
