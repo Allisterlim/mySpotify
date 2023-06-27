@@ -390,7 +390,7 @@ class Instantiate_Spotify_Analysis:
         with open('outputs/combined_endsong_file.json', 'w') as f:
             json.dump(json_list, f)
         
-        return 'combined_endsong_file.json'
+        return 'outputs/combined_endsong_file.json'
 
 
     def instantiate_Dataset(self, dataset):
