@@ -1,5 +1,6 @@
 import json
 import datetime 
+import matplotlib
 
 class spotifyAnalyser:
 
@@ -232,7 +233,38 @@ class spotifyAnalyser:
 
 
     def listening_time_by_year(self):
-        pass 
+        songs_sorted_by_date = self.sort_based_on_datetime()
+        #This will create a dictionary with the years as keys and the total listening time as values
+        listening_time_by_year = {}
+        for i in range(len(songs_sorted_by_date)):
+            if songs_sorted_by_date[i]["ts"][0:4] in listening_time_by_year:
+                listening_time_by_year[songs_sorted_by_date[i]["ts"][0:4]] += songs_sorted_by_date[i]["ms_played"]
+            else:
+                listening_time_by_year[songs_sorted_by_date[i]["ts"][0:4]] = songs_sorted_by_date[i]["ms_played"]
+        return listening_time_by_year
+
+    def print_listening_time_by_year(self):
+        listening_time_by_year = self.listening_time_by_year()
+        for key in listening_time_by_year.keys():
+            listening_time_by_year[key] = self.convert_ms_to_readable_units(listening_time_by_year[key])
+        return f'The listening time by year is {listening_time_by_year}'
+
+    def listening_time_by_month(self):
+        #This will create a dictionary with the months as keys and the total listening time as values
+        songs_sorted_by_date = self.sort_based_on_datetime()
+        listening_time_by_month = {}
+        for i in range(len(songs_sorted_by_date)):
+            if songs_sorted_by_date[i]["ts"][0:7] in listening_time_by_month:
+                listening_time_by_month[songs_sorted_by_date[i]["ts"][0:7]] += songs_sorted_by_date[i]["ms_played"]
+            else:
+                listening_time_by_month[songs_sorted_by_date[i]["ts"][0:7]] = songs_sorted_by_date[i]["ms_played"]
+        return listening_time_by_month
+    
+    def print_listening_time_by_month(self):
+        listening_time_by_month = self.listening_time_by_month()
+        for key in listening_time_by_month.keys():
+            listening_time_by_month[key] = self.convert_ms_to_readable_units(listening_time_by_month[key])
+        return f'The listening time by month is {listening_time_by_month}'
 
     def average_daily_listening_time(self):
     #This will require you to sort your list 
@@ -315,6 +347,12 @@ class spotifyAnalyser:
                 j += 1
         return self.spotify_data  
 
+    def get_datetime(self, item):
+        return self.string_to_datetimeobject(item['ts']) or ''
+
+    def sort_based_on_datetime(self):
+        return sorted(self.spotify_data, key=self.get_datetime)
+
     def get_artist_name(self, item):
         return item['master_metadata_album_artist_name'] or ''
 
@@ -361,6 +399,10 @@ class spotifyAnalyser:
             f.write(self.print_top20_most_listened_to_albums())
             f.write('\n')
             f.write(self.print_top30_most_listened_to_songs())
+            f.write('\n')
+            f.write(self.print_listening_time_by_year())
+            f.write('\n')
+            f.write(self.print_listening_time_by_month())
 
 class Instantiate_Spotify_Analysis:
     def __init__(self):
@@ -374,12 +416,12 @@ class Instantiate_Spotify_Analysis:
         # self.instantiate_Dataset(self.big_Dataset)
         # self.instantiate_Dataset(self.testDataset_24songs)
         # self.instantiate_Dataset(self.testDataset_351songs)
-        # self.instantiate_Dataset(self.testDataset_2174songs)
+        self.instantiate_Dataset(self.testDataset_2174songs)
 
 
         ##### Actual Datasets
-        endsong_data_filepaths = [r'Spotify_Data\big_SpotifyData\endsong_0.json', r'Spotify_Data\big_SpotifyData\endsong_1.json', r'Spotify_Data\big_SpotifyData\endsong_2.json', r'Spotify_Data\big_SpotifyData\endsong_3.json', r'Spotify_Data\big_SpotifyData\endsong_4.json', r'Spotify_Data\big_SpotifyData\endsong_5.json', r'Spotify_Data\big_SpotifyData\endsong_6.json', r'Spotify_Data\big_SpotifyData\endsong_7.json', r'Spotify_Data\big_SpotifyData\endsong_8.json', r'Spotify_Data\big_SpotifyData\endsong_9.json', r'Spotify_Data\big_SpotifyData\endsong_10.json', r'Spotify_Data\big_SpotifyData\endsong_11.json']
-        self.instantiate_Dataset(self.combine_json_files(endsong_data_filepaths))
+        # endsong_data_filepaths = [r'Spotify_Data\big_SpotifyData\endsong_0.json', r'Spotify_Data\big_SpotifyData\endsong_1.json', r'Spotify_Data\big_SpotifyData\endsong_2.json', r'Spotify_Data\big_SpotifyData\endsong_3.json', r'Spotify_Data\big_SpotifyData\endsong_4.json', r'Spotify_Data\big_SpotifyData\endsong_5.json', r'Spotify_Data\big_SpotifyData\endsong_6.json', r'Spotify_Data\big_SpotifyData\endsong_7.json', r'Spotify_Data\big_SpotifyData\endsong_8.json', r'Spotify_Data\big_SpotifyData\endsong_9.json', r'Spotify_Data\big_SpotifyData\endsong_10.json', r'Spotify_Data\big_SpotifyData\endsong_11.json']
+        # self.instantiate_Dataset(self.combine_json_files(endsong_data_filepaths))
 
     def combine_json_files(self, endsong_data_filepaths):
         #This function will combine all the json files into one json file 
@@ -408,10 +450,6 @@ class Instantiate_Spotify_Analysis:
 
         # print(spotifyAnalyser(dataset).count_number_of_artist_listens()) 
         
-
-     
-
-
 
 if __name__ == "__main__": 
     Instantiate_Spotify_Analysis()

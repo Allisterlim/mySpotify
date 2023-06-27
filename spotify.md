@@ -7,10 +7,10 @@ I guess I just want to see how much music I listen to each day and then display 
 # todo items 
 - [x] join all the endsong data to process all your data up till 2022 
 - [x] create a virtual env 
-- [ ] upload this to github (have to gitignore data)
-- [ ] add an output folder and add this folder to gitignore.
-- [ ] Create a a listening time by year  
-- [ ] create a listening time by month and year 
+- [x] upload this to github (have to gitignore data)
+- [x] add an output folder and add this folder to gitignore.
+- [x] Create a a listening time by year  
+- [x] create a listening time by month and year 
 - [ ] display the above information on a graph 
 - [ ] run a website and have your report and graphs displayed nicely on there using javascript 
 - [ ] explore the live data spotify api 
