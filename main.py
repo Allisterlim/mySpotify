@@ -1,6 +1,6 @@
 import json
 import datetime 
-import matplotlib
+import matplotlib.pyplot as plt
 
 class spotifyAnalyser:
 
@@ -37,6 +37,29 @@ class spotifyAnalyser:
         if total_listening_time_ms >= 6.048*10**8:
             total_listening_time_w = total_listening_time_ms/(6.048*10**8) 
             return [total_listening_time_w,'week'] 
+
+
+    def convert_ms_to_readable_units_for_plotting(self, total_listening_time_ms, unit):
+        #This will convert ms to hours, minutes, seconds for plotting purposes 
+        #unit is the unit you want to convert to
+
+        if unit == 'week':
+            total_listening_time_w = total_listening_time_ms/(6.048*10**8) 
+            return total_listening_time_w
+        
+        if unit == 'day':
+            total_listening_time_d = total_listening_time_ms/(8.64*10**7) 
+            return total_listening_time_d
+
+        if unit == 'hour':
+            total_listening_time_h = total_listening_time_ms/(3.6*10**6) 
+            return total_listening_time_h
+        if unit == 'minute':
+            total_listening_time_m = total_listening_time_ms/(60000) 
+            return total_listening_time_m
+        if unit == 'second':
+            total_listening_time_s = total_listening_time_ms/(1000) 
+            return total_listening_time_s
 
 
     ############################################ META DATA ######################################
@@ -404,6 +427,40 @@ class spotifyAnalyser:
             f.write('\n')
             f.write(self.print_listening_time_by_month())
 
+
+############################################ PLOTTING ######################################
+    def plot_listening_time_by_year(self):
+        #This will use matplot lib to plot the listening time by year
+        listening_time_by_year = self.listening_time_by_year()
+
+        #apply the convert_ms_to_readable_units_for_plotting function to the values of the dictionary
+        for key in listening_time_by_year.keys():
+            listening_time_by_year[key] = self.convert_ms_to_readable_units_for_plotting(listening_time_by_year[key], 'day')
+
+        print(listening_time_by_year)
+        plt.bar(list(listening_time_by_year.keys()), list(listening_time_by_year.values()), color = 'green')
+        plt.show()
+
+
+    def plot_listening_time_by_month(self):
+        #This will use matplot lib to plot the listening time by month
+        listening_time_by_month = self.listening_time_by_month()
+
+        for key in listening_time_by_month.keys():
+            listening_time_by_month[key] = self.convert_ms_to_readable_units_for_plotting(listening_time_by_month[key], 'hour')
+
+        plt.bar(list(listening_time_by_month.keys()), list(listening_time_by_month.values()), color = 'green')
+
+        plt.xlabel('Date')
+        plt.ylabel('Hours')
+
+        plt.xticks(list(listening_time_by_month.keys())[::3])
+
+        for x, y in zip(list(listening_time_by_month.keys()), list(listening_time_by_month.values())):
+            plt.text(x, y, str(y)[:6], ha='center', va='bottom', rotation=90)
+
+        plt.show()
+
 class Instantiate_Spotify_Analysis:
     def __init__(self):
 
@@ -437,19 +494,23 @@ class Instantiate_Spotify_Analysis:
 
     def instantiate_Dataset(self, dataset):
 
+        spotify_data = spotifyAnalyser(dataset)
 
-        spotifyAnalyser(dataset).create_Txt_Report()
-        # spotifyAnalyser(dataset).print_number_of_artist_listens('artist_listens.txt')
+        # REPORTS 
+        spotify_data.create_Txt_Report()
+        # spotify_data.print_number_of_artist_listens('artist_listens.txt')
 
-        #Data sorting 
+        # PLOTTING 
+        # spotify_data.plot_listening_time_by_year()
+        spotify_data.plot_listening_time_by_month()
+
+        # DATA SORTING 
         # spotifyAnalyser(dataset).insertion_sorted_Data_into_json() 
         # spotifyAnalyser(dataset).sort_based_on_artist_name_into_json()
 
-        #intervals 
+        # INTERVALS 
         # spotifyAnalyser(dataset).print_total_listening_time_over_interval('2018-08-27T09:51:44Z','2019-01-21T04:17:12Z') 
 
-        # print(spotifyAnalyser(dataset).count_number_of_artist_listens()) 
-        
 
 if __name__ == "__main__": 
     Instantiate_Spotify_Analysis()
