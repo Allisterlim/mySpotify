@@ -459,7 +459,8 @@ class spotifyAnalyser:
         for x, y in zip(list(listening_time_by_month.keys()), list(listening_time_by_month.values())):
             plt.text(x, y, str(y)[:6], ha='center', va='bottom', rotation=90)
 
-        plt.show()
+        plt.savefig('outputs/plot.png')
+        # plt.show()
 
 class Instantiate_Spotify_Analysis:
     def __init__(self):
