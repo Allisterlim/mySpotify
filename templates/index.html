@@ -14,6 +14,9 @@
         <h2>Contents of Output File:</h2>
         <pre>{{ contents }}</pre>
     {% endif %}
+    {% if image_file %}
+        <img src="{{ url_for('image') }}" alt="Image">
+    {% endif %}
 </div>
 </body>
 </html>
