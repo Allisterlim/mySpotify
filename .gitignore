@@ -1,5 +1,6 @@
 /.vscode
 /Spotify_Data
 /learning
-/test_Data
+test_Data/test_endsong_2174songs.json
+test_Data/test_endsong_351songs.json
 /outputs
