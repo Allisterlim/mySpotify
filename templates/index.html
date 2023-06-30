@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>FlaskBlog</title>
+</head>
+<body>
+   <h1>Welcome to my spotify data</h1>
+   <form action="/" method="post">
+        <button type="submit">Run Script</button>
+    </form>
+    {% if contents %}
+        <h2>Contents of Output File:</h2>
+        <pre>{{ contents }}</pre>
+    {% endif %}
+    {% if image_file %}
+        <img src="{{ url_for('image') }}" alt="Image">
+    {% endif %}
+</div>
+</body>
+</html>
+ 
