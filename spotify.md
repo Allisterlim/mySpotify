@@ -3,10 +3,16 @@ Main goal:
 I guess I just want to see how much music I listen to each day and then display that on a graph over the course of one year 
 
 # todo items 
-- [ ] you've set up the firebase host. And you've created a dataset. Now you need to connect your git repo to the firebase folder directory that you created 
-- [ ] Once you've done that, you need to figure out how to deploy the react app on the firebase host. (Front end side)
+- [x] you've set up the firebase host. And you've created a dataset. Now you need to connect your git repo to the firebase folder directory that you created 
+- [x] try to deploy the firebase server again
+- [x] I need to understand how firebase hosting works, read through the documentation or bingAI it. https://firebase.google.com/docs/hosting/quickstart 
+- [x] do I have to configure all files to be ignored in the firebase.json file? no.
+- [x] Once you've done that, you need to figure out how to deploy the react app on the firebase host. (Front end side) https://firebase.google.com/docs/hosting/test-preview-deploy 
+- [x] it looks like, we'll have to abandon the python flask stuff and rewrite the code into something compatible with firebase, which is probably npm or node js or some shit. lets look at this tutorial
+- [ ] set up a test javascript project and try to have this run on firebase. 
+- [ ] once js website is set up, convert the python functions to js and have this run on firebase. 
 - [ ] set up the firestorage database by uploading your spotify data onto the website (you can import .json as collections) 
-- [ ] move your calculations and report generation code onto a server where it can do it at anytime. This means to set up the server side calculations on firebase as well. 
+- [ ] move your calculations and report generation code onto a server where it can do it at anytime. This means to set up the server side calculations on firebase as well. this would be done using firebase cloud functions or cloud run I think
 - [ ] resize the .png file your uploading so that it's a better shape 
 - [ ] clean up the .txt data your uploading so it actually looks visually nice... maybe this is where you incorporate javascript.
 - [ ] set up a way for people to upload their data 
