@@ -2,9 +2,20 @@
 Main goal:
 I guess I just want to see how much music I listen to each day and then display that on a graph over the course of one year 
 
-
-
 # todo items 
+- [ ] you've set up the firebase host. And you've created a dataset. Now you need to connect your git repo to the firebase folder directory that you created 
+- [ ] Once you've done that, you need to figure out how to deploy the react app on the firebase host. (Front end side)
+- [ ] set up the firestorage database by uploading your spotify data onto the website (you can import .json as collections) 
+- [ ] move your calculations and report generation code onto a server where it can do it at anytime. This means to set up the server side calculations on firebase as well. 
+- [ ] resize the .png file your uploading so that it's a better shape 
+- [ ] clean up the .txt data your uploading so it actually looks visually nice... maybe this is where you incorporate javascript.
+- [ ] set up a way for people to upload their data 
+- [ ] set up a way for people to connect to the live data spotify api.
+- [ ] you can try live sorting algorithms 
+- [ ] create a screentime app for apple, or one for your PC 
+- [ ] create one for your youtube videos and for netflix
+
+# done 
 - [x] join all the endsong data to process all your data up till 2022 
 - [x] create a virtual env 
 - [x] upload this to github (have to gitignore data)
@@ -17,13 +28,4 @@ I guess I just want to see how much music I listen to each day and then display 
 - [x] modify your page and create a button on the website that will generate your spotify data and report locally 
 - [x] modify this button so that it also uploads the .txt file on the website once it's generated
 - [x] make it upload the graph as well.
-- [ ] actually deploy this website on a free server (github.io) (i'm curious, if no database or server is connected except for the front end, will it execute those backend functions on my local?)
-- [ ] set up a database that you can place your spotify data into and that you flask_webapp can connect to. 
-- [ ] move your calculations and report generation code onto a server where it can do it at anytime..
-- [ ] resize the .png file your uploading so that it's a better shape 
-- [ ] clean up the .txt data your uploading so it actually looks visually nice... maybe this is where you incorporate javascript.
-- [ ] set up a way for people to upload their data 
-- [ ] set up a way for people to connect to the live data spotify api.
-- [ ] you can try live sorting algorithms 
-- [ ] create a screentime app for apple, or one for your PC 
-- [ ] create one for your youtube videos and for netflix
+
