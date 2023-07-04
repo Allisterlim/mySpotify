@@ -9,7 +9,8 @@ I guess I just want to see how much music I listen to each day and then display 
 - [x] do I have to configure all files to be ignored in the firebase.json file? no.
 - [x] Once you've done that, you need to figure out how to deploy the react app on the firebase host. (Front end side) https://firebase.google.com/docs/hosting/test-preview-deploy 
 - [x] it looks like, we'll have to abandon the python flask stuff and rewrite the code into something compatible with firebase, which is probably npm or node js or some shit. lets look at this tutorial
-- [ ] set up a test javascript project and try to have this run on firebase. 
+- [x] once last chance before we move onto js, try this tutorial https://cloud.google.com/community/tutorials/building-flask-api-with-cloud-firestore-and-deploying-to-cloud-run 
+- [ ] set up a test javascript project and try to have this run on firebase. follow this tutorial; https://firebase.google.com/docs/web/setup 
 - [ ] once js website is set up, convert the python functions to js and have this run on firebase. 
 - [ ] set up the firestorage database by uploading your spotify data onto the website (you can import .json as collections) 
 - [ ] move your calculations and report generation code onto a server where it can do it at anytime. This means to set up the server side calculations on firebase as well. this would be done using firebase cloud functions or cloud run I think
@@ -20,6 +21,7 @@ I guess I just want to see how much music I listen to each day and then display 
 - [ ] you can try live sorting algorithms 
 - [ ] create a screentime app for apple, or one for your PC 
 - [ ] create one for your youtube videos and for netflix
+- [ ] remove your spotify_all_time_wrapped directory as it could fk up your repo. 
 
 # done 
 - [x] join all the endsong data to process all your data up till 2022 
