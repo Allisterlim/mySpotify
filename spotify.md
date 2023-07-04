@@ -17,6 +17,7 @@ I guess I just want to see how much music I listen to each day and then display 
 - [x] modify your page and create a button on the website that will generate your spotify data and report locally 
 - [x] modify this button so that it also uploads the .txt file on the website once it's generated
 - [x] make it upload the graph as well.
+- [ ] look into gcp and flask tutorial. https://medium.com/geekculture/deploy-your-flask-app-on-the-google-cloud-platform-9bbfac94c14d and https://cloud.google.com/appengine/docs/flexible/python/create-app and https://www.freecodecamp.org/news/how-to-build-a-web-application-using-flask-and-deploy-it-to-the-cloud-3551c985e492/ 
 - [ ] actually deploy this website on a free server (github.io) (i'm curious, if no database or server is connected except for the front end, will it execute those backend functions on my local?)
 - [ ] set up a database that you can place your spotify data into and that you flask_webapp can connect to. 
 - [ ] move your calculations and report generation code onto a server where it can do it at anytime..
