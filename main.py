@@ -472,9 +472,9 @@ class Instantiate_Spotify_Analysis:
         self.testDataset_24songs = r'test_Data\test_endsong_24songs.json'
 
         # self.instantiate_Dataset(self.big_Dataset)
-        # self.instantiate_Dataset(self.testDataset_24songs)
+        self.instantiate_Dataset(self.testDataset_24songs)
         # self.instantiate_Dataset(self.testDataset_351songs)
-        self.instantiate_Dataset(self.testDataset_2174songs)
+        # self.instantiate_Dataset(self.testDataset_2174songs)
 
 
         ##### Actual Datasets
