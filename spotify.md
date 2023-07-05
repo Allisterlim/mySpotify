@@ -20,7 +20,7 @@ I guess I just want to see how much music I listen to each day and then display 
 - [x] look into gcp and flask tutorial. https://medium.com/geekculture/deploy-your-flask-app-on-the-google-cloud-platform-9bbfac94c14d and https://cloud.google.com/appengine/docs/flexible/python/create-app and https://www.freecodecamp.org/news/how-to-build-a-web-application-using-flask-and-deploy-it-to-the-cloud-3551c985e492/ 
 - [x] apply this tutorial to your current spotify website: https://cloud.google.com/appengine/docs/flexible/python/create-app
 - [ ] turn off your testappengineserver.
-- [ ] make the website actually display your spotify data onto it.. 
+- [x] make the website actually display your spotify data onto it.. 
 - [ ] get rid of the firebase stuff tbh. 
 - [ ] actually deploy this website on a free server (github.io) (i'm curious, if no database or server is connected except for the front end, will it execute those backend functions on my local?)
 - [ ] set up a database that you can place your spotify data into and that you flask_webapp can connect to. 
